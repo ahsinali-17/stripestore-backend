@@ -13,10 +13,6 @@ app.use(express.json());
 
 app.use(cors('*'));
 
-app.get('/checkout', (req, res) => {
-    res.send('Hello World');
-});
-
 app.post('/checkout', async (req, res) => {
 
    try{
@@ -45,7 +41,6 @@ app.post('/checkout', async (req, res) => {
 
         res.json({ id: session.id }); //send the session id to the client
     } catch (error) {
-        console.error(error.message);
         res.status(500).json({ error: 'Internal Server Error' });
     
     }
