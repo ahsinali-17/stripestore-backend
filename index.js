@@ -5,13 +5,13 @@ const app = express();
 const stripe = require('stripe')(`${process.env.STRIPE_SECRET}`);
 
 app.use(express.json());
-const corsOptions = {
-  origin: ['https://stripestore-backend.vercel.app', 'http://localhost:3000'],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
-  credentials: true, 
-};
+// const corsOptions = {
+//   origin: ['https://stripestore-backend.vercel.app', 'http://localhost:3000'],
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
+//   credentials: true, 
+// };
 
-app.use(cors(corsOptions));
+app.use(cors('*'));
 
 app.get('/checkout', (req, res) => {
     res.send('Hello World');
